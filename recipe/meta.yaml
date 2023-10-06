@@ -10,7 +10,7 @@ source:
   sha256: c85ce5887ced432b14c790638f3e16371c8fd245d425409f3d5951d0a564e904
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x.x') }}
@@ -23,14 +23,14 @@ requirements:
   host:
     - python
     - eigenpy
-    - boost
+    - libboost-python-devel
     - pinocchio
     - eiquadprog
     - urdfdom
   run:
     - python
     - eigenpy
-    - boost
+    - libboost-python-devel
     - pinocchio
     - eiquadprog
     - urdfdom
