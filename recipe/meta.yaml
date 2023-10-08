@@ -30,7 +30,6 @@ requirements:
   run:
     - python
     - eigenpy
-    - libboost-python-devel
     - pinocchio
     - eiquadprog
     - urdfdom
