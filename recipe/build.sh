@@ -3,10 +3,12 @@
 mkdir build
 cd build
 
+echo "python version:" $($PYTHON --version)
+echo "python version:" $($(which python) --version)
+
 cmake .. \
       ${CMAKE_ARGS} \
       -DCMAKE_BUILD_TYPE=Release \
-      -DPython3_NumPy_INCLUDE_DIR=$TARGET_NUMPY_INCLUDE_DIRS \
       -DBUILD_TESTING=OFF \
       -DPYTHON_EXECUTABLE=$PYTHON
 
