@@ -229,4 +229,5 @@ Feedstock Maintainers
 
 * [@EtienneAr](https://github.com/EtienneAr/)
 * [@jcarpent](https://github.com/jcarpent/)
+* [@jorisv](https://github.com/jorisv/)
 
