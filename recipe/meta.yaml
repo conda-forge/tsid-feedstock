@@ -17,23 +17,20 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [not win]
-    - {{ stdlib("c") }}    # [not win]
+    - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - cmake
-    - make  # [not win]
+    - ninja
   host:
     - python
     - eigenpy
     - libboost-python-devel
+    - eigen
     - pinocchio
     - eiquadprog
     - urdfdom
   run:
     - python
-    - eigenpy
-    - pinocchio
-    - eiquadprog
-    - urdfdom
 test:
   requires:
     - pkg-config
