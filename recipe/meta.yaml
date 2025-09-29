@@ -31,6 +31,7 @@ requirements:
     - eigen
     - pinocchio
     - eiquadprog
+    - proxsuite
     - urdfdom
     - numpy
   run:
