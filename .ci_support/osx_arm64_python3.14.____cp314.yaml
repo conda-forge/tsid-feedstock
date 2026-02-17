@@ -7,7 +7,7 @@ c_stdlib:
 c_stdlib_version:
 - '11.0'
 channel_sources:
-- conda-forge,conda-forge/label/python_rc
+- conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
@@ -29,7 +29,4 @@ python:
 target_platform:
 - osx-arm64
 urdfdom:
-- '4.0'
-zip_keys:
-- - python
-  - channel_sources
+- '5.1'

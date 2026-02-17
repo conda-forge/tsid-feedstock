@@ -25,7 +25,4 @@ python:
 target_platform:
 - linux-aarch64
 urdfdom:
-- '4.0'
-zip_keys:
-- - python
-  - channel_sources
+- '5.1'
