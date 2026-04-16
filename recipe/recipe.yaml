@@ -1,0 +1,76 @@
+schema_version: 1
+
+context:
+  name: tsid
+  version: "1.10.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/stack-of-tasks/${{ name }}/archive/v${{ version }}.tar.gz
+  sha256: c31f3c61a1a40c9d6e2411ef224da3db51c8a1fdb185425fc6ce84e06fe33862
+
+build:
+  number: 0
+  skip: win
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - cmake
+    - ninja
+  host:
+    - python
+    - eigenpy
+    - libboost-python-devel
+    - eigen
+    - eigen-abi-devel
+    - coal # necessary because Pinocchio 3.9 depends on 'hpp-fcl'
+    - pinocchio
+    - eiquadprog
+    - proxsuite
+    - urdfdom
+    - numpy
+  run:
+    - python
+    - coal-python
+  run_exports:
+    - ${{ pin_subpackage(name, upper_bound='x.x.x') }}
+
+tests:
+  - package_contents:
+      include:
+        - tsid/macros.hpp
+        - tsid/config.hh
+      lib:
+        - tsid
+  - python:
+      imports:
+        - tsid
+      pip_check: false
+  - script:
+      - pkg-config --modversion ${{ name }}
+    requirements:
+      run:
+        - pkg-config
+
+about:
+  license: BSD-2-Clause
+  license_file: LICENSE
+  summary: TSID is a C++ library for optimization-based inverse-dynamics control based on the rigid multi-body dynamics library Pinocchio.
+  homepage: http://github.com/stack-of-tasks/tsid
+  repository: https://github.com/stack-of-tasks/tsid
+
+extra:
+  recipe-maintainers:
+    - jorisv
+    - EtienneAr
+    - jcarpent
