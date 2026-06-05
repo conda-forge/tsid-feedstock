@@ -31,4 +31,4 @@ python:
 target_platform:
 - osx-arm64
 urdfdom:
-- '5.1'
+- '6'
