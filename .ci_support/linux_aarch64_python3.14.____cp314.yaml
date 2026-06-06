@@ -27,4 +27,4 @@ python:
 target_platform:
 - linux-aarch64
 urdfdom:
-- '5.1'
+- '6'
